@@ -47,6 +47,7 @@ class Tile(Actor):
             self.set_text("X")
             return "X_X"
         else:
+            self.set_text(str(self._nearby_bombs))
             return self._nearby_bombs
 
 

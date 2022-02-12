@@ -42,10 +42,10 @@ class ControlActorsAction(Action):
         tile_list = cast.get_actors("tiles")
 
         if command != "":
-            current_tile = ''
+            current_tile = ""
 
             for tile in tile_list:
-                if tile.get_position() == position:
+                if (abs(tile.get_position().get_x() - position.get_x()) < 15 and abs(tile.get_position().get_y() - position.get_y()) < 15) :
                     current_tile = tile
 
             if command == "Flag":

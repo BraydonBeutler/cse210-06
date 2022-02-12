@@ -29,7 +29,7 @@ def main():
     position = position.scale(constants.CELL_SIZE)
 
     cursor = Actor()
-    cursor.set_text("|_|")
+    cursor.set_text("| |")
     cursor.set_font_size(constants.FONT_SIZE)
     cursor.set_color(constants.WHITE)
     cursor.set_position(position)
@@ -43,12 +43,12 @@ def main():
             [1 , 2 , 2 , 2 , 9 , 2] ,
             [0 , 1 , 9 , 2 , 2 , 9]]
 
-    x = 0
-    y = 0
-    color = constants.GREEN
 
+    color = constants.GREEN
+    x = 0
     for row in grid:
         x += 15
+        y = 0
         for space in row:
             y += 15
             tile = Tile()
@@ -56,6 +56,7 @@ def main():
             tile.set_color(color)
             position = Point(x , y)
             position.scale(constants.CELL_SIZE)
+            tile.set_position(position)
             cast.add_actor("tiles", tile)
 
     # tstl = cast.get_all_actors()
@@ -65,7 +66,7 @@ def main():
 
 
     # start the game
-    keyboard_service = KeyboardService()
+    keyboard_service = KeyboardService(constants.CELL_SIZE)
     video_service = VideoService()
 
     script = Script()
