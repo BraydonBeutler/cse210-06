@@ -106,7 +106,7 @@ class grid():
                         self._update_tl(self._grid , x , y)
 
                     # the left edge
-                    elif x == 0:
+                    elif y == 0:
                         self._update_right(self._grid , x , y)
                         self._update_above(self._grid , x , y)
                         self._update_below(self._grid , x , y)
@@ -122,7 +122,7 @@ class grid():
                         self._update_tl(self._grid , x , y)
 
                     # the top edge
-                    elif y == 0:
+                    elif x == 0:
                         self._update_left(self._grid , x , y)
                         self._update_right(self._grid , x , y)
                         self._update_below(self._grid , x , y)
@@ -174,6 +174,6 @@ class grid():
             self._update_numbers()
 
 
-# grid = grid(constants)
-# for list in grid.get_grid():
-#     print(list)
+grid = grid(constants)
+for list in grid.get_grid():
+    print(list)
