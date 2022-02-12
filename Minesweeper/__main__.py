@@ -37,12 +37,12 @@ def main():
     cast.add_actor("cursor", cursor)
 
     # create the tiles
-    Grid = grid(constants).get_grid()
+    Grid = grid(constants)
 
 
     color = constants.GREEN
     x = 0
-    for row in Grid:
+    for row in Grid.get_grid():
         x += 15
         y = 0
         for space in row:

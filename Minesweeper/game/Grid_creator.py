@@ -19,6 +19,10 @@ class grid():
         """return the grid"""
         return self._grid
 
+    def get_gridsize(self):
+        """return the size of the Grid from the constants."""
+        return self._gridsize
+
     def _update_right(self , grid , x , y):
         """update the right of the selected square."""
         if grid[x][y+1] != 9:
@@ -170,6 +174,6 @@ class grid():
             self._update_numbers()
 
 
-grid = grid(constants)
-for list in grid.get_grid():
-    print(list)
+# grid = grid(constants)
+# for list in grid.get_grid():
+#     print(list)
