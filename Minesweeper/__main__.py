@@ -1,5 +1,6 @@
 import constants
-import random
+
+from game.Grid_creator import grid
 
 from game.directing.director import Director
 from game.casting.cast import Cast
@@ -9,7 +10,7 @@ from  game.casting.actor import Actor
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
-from game.scripting.handle_collisions_action import HandleCollisionsAction
+from game.scripting.HandleGameStateAction import HandleGameStateAction
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
@@ -36,17 +37,12 @@ def main():
     cast.add_actor("cursor", cursor)
 
     # create the tiles
-    grid = [[0 , 1 , 1 , 2 , 1 , 1] ,
-            [1 , 2 , 9 , 2 , 9 , 1] ,
-            [9 , 3 , 2 , 1 , 1 , 1] ,
-            [2 , 9 , 1 , 1 , 1 , 1] ,
-            [1 , 2 , 2 , 2 , 9 , 2] ,
-            [0 , 1 , 9 , 2 , 2 , 9]]
+    Grid = grid(constants).get_grid()
 
 
     color = constants.GREEN
     x = 0
-    for row in grid:
+    for row in Grid:
         x += 15
         y = 0
         for space in row:
@@ -72,7 +68,7 @@ def main():
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
     script.add_action("update", MoveActorsAction())
-    script.add_action("update", HandleCollisionsAction())
+    script.add_action("update", HandleGameStateAction())
     script.add_action("output", DrawActorsAction(video_service))
 
     director = Director(video_service)
