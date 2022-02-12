@@ -1,6 +1,6 @@
 import constants
 
-from game.Grid_creator import grid
+from game.Grid_creator import Grid
 
 from game.directing.director import Director
 from game.casting.cast import Cast
@@ -37,12 +37,12 @@ def main():
     cast.add_actor("cursor", cursor)
 
     # create the tiles
-    Grid = grid(constants)
+    grid = Grid(constants)
 
 
     color = constants.GREEN
     x = 0
-    for row in Grid.get_grid():
+    for row in grid.get_grid():
         x += 15
         y = 0
         for space in row:

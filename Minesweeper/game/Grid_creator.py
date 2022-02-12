@@ -1,7 +1,7 @@
 import random
 import constants
 
-class grid():
+class Grid():
     """A board that contains bombs and numbers.
     The responsibility of the grid is to make and return a certain sized square grid for playing.
     Attributes:
@@ -174,6 +174,6 @@ class grid():
             self._update_numbers()
 
 
-grid = grid(constants)
-for list in grid.get_grid():
-    print(list)
+# grid = Grid(constants)
+# for list in grid.get_grid():
+#     print(list)
