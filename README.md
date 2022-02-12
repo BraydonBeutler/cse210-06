@@ -1,9 +1,9 @@
 # MINE SWEEPER
 Minesweeper is the classic game. Figure out which tiles are bombs, and flag them. The game ends when you flag all (and only) the mines, or if you accidentally uncover one X_X.
 Commands:
-	"F" -> Flag a tile
-	Spacebar -> Reveal a tile
-	Left/right/up/down -> left right up and down, respectively :p
+	"F" -> Flag a tile.
+	Spacebar -> Reveal a tile.
+	Left/right/up/down -> left right up and down, respectively :p.
 
 
 ## Getting Started
@@ -24,9 +24,10 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- cycle               (source code for game)
++-- Minesweeper               (source code for game)
   +-- game              (specific game classes)
   +-- __main__.py       (entry point for program)
+  +-- constants.py 	(set values for raylib and grid)
 +-- README.md           (general info)
 ```
 
