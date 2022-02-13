@@ -174,6 +174,6 @@ class grid():
             self._update_numbers()
 
 
-grid = grid(constants)
-for list in grid.get_grid():
-    print(list)
+# grid = grid(constants)
+# for list in grid.get_grid():
+#     print(list)

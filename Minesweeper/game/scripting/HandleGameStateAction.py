@@ -2,6 +2,7 @@ import constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
+from game.shared.color import Color
 
 class HandleGameStateAction(Action):
     """
@@ -28,6 +29,9 @@ class HandleGameStateAction(Action):
         if not self._is_game_over:
             self._check_tiles(cast)
             self._handle_game_over(cast)
+
+        elif self._is_game_over and self._won:
+            self._flash(cast)
 
     def _check_tiles(self , cast):
         """Go through all the tiles.
@@ -98,6 +102,30 @@ class HandleGameStateAction(Action):
                 if actor.get_text() != "X":
                     if self._won:
                         actor.set_color(constants.YELLOW)
+
                     else:
                         actor.set_color(constants.WHITE)
 
+    def _flash(self , cast):
+        """Flash the screen"""
+        actors = cast.get_all_actors()
+        for actor in actors:
+            color = actor.get_color()
+            r = color.to_tuple()[0]
+            g = color.to_tuple()[1]
+            b = color.to_tuple()[2]
+
+            if r <= 25:
+                r = 255
+            else:
+                r -= 25
+            if g <= 50:
+                g = 255
+            else:
+                g -= 50
+            if b <= 10:
+                b = 255
+            else:
+                b -= 10
+
+            actor.set_color(Color(r , g , b))
