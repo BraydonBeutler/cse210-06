@@ -3,6 +3,7 @@ from game.scripting.action import Action
 
 
 class MoveActorsAction:
+    '''An update action that moves the actors based on input'''
 
     def __init__(self):
         """Constructs a new MoveActorsAction."""
