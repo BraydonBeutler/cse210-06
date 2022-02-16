@@ -25,6 +25,8 @@ class Tile(Actor):
             self._is_bomb = True
 
     def peek_at_bomb(self):
+        """returns "Bomb" if actor is bomb"""
+        
         if self._is_bomb:
             return "Bomb"
         else:
